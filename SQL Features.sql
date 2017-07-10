@@ -54,5 +54,17 @@ SELECT * FROM BusinessLeaders ORDER BY salary FETCH FIRST 6 ROWS WITH TIES
 
 SELECT * FROM BusinessLeaders ORDER BY salary OFFSET 5 ROWS FETCH NEXT 10 ROWS ONLY
 
+/
+--2 dbms_utility.expand_sql_text
+--In this new feature, we need to provide SQL to find out all the view's and base table where
+
+
+DECLARE
+v_output VARCHAR2(32761);
+BEGIN
+  DBMS_UTILITY.expand_sql_text('select * from user_sequences',v_output);
+  DBMS_OUTPUT.PUT_LINE(V_output);
+END;
+
 
 
